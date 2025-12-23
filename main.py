@@ -122,7 +122,7 @@ def tag_item(payload: TagItemRequest):
 @app.post("/ai/assistant", response_model=AssistantResponse)
 def assistant(payload: AssistantRequest):
     intents = extract_intent(payload.message)
-    primary_intent = intents[0]
+    primary_intent = intents[0]  # pick the first intent
     if "event" in primary_intent:
         action = "generate_outfit"
         reasoning = "User is asking for outfit advice for an event"
